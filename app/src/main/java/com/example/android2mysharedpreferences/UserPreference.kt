@@ -5,11 +5,11 @@ import android.content.Context
 
 internal class UserPreference(context: Context) {
     companion object {
-        private const val PREFS_NAME = "USER_PREF"
-        private const val NAME = "NAME"
-        private const val EMAIL = "EMAIL"
-        private const val AGE = "AGE"
-        private const val PHONE_NUMBER = "PHONE"
+        private const val PREFS_NAME = "user_pref"
+        private const val NAME = "name"
+        private const val EMAIL = "email"
+        private const val AGE = "age"
+        private const val PHONE_NUMBER = "phone"
         private const val LOVE_MU = "islove"
     }
 
@@ -17,7 +17,7 @@ internal class UserPreference(context: Context) {
 
     @SuppressLint("CommitPrefEdits")
     fun setUser(value: UserModel) {
-        val editor = preference.edit().apply {
+        preference.edit().apply {
             putString(NAME, value.name)
             putString(EMAIL, value.email)
             putInt(AGE, value.age)

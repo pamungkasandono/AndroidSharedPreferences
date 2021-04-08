@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 isPreferenceEmpty = false
             }
             else -> {
-                binding.btnSave.text = getString(R.string.save)
+                binding.btnSave.text = getString(R.string.add)
                 isPreferenceEmpty = true
             }
         }

@@ -1,13 +1,14 @@
 package com.example.android2mysharedpreferences.form
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.text.TextUtils.isEmpty
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.android2mysharedpreferences.R
 import com.example.android2mysharedpreferences.UserModel
 import com.example.android2mysharedpreferences.UserPreference
@@ -125,6 +126,10 @@ class FormUserPreferenceActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun isValidEmail(email: CharSequence): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
     private fun saveUser(
         name: String,
         email: String,
@@ -140,12 +145,11 @@ class FormUserPreferenceActivity : AppCompatActivity(), View.OnClickListener {
         userModel.phoneNumber = phoneNo
         userModel.isLove = loveMU
 
+//        Log.d("asdasd", loveMU.toString())
+
+
         userPref.setUser(userModel)
         Toast.makeText(this, "Data Tersimpan", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun isValidEmail(email: CharSequence): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
